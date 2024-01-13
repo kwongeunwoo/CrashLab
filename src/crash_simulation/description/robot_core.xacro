@@ -1,0 +1,195 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find crash_simulation)/description/materials.xacro" />
+<!-- <xacro:include filename="$(find crash_simulation)/description/crash_robot.trans" /> -->
+<!-- <xacro:include filename="$(find crash_simulation)/description/crash_robot.gazebo" /> -->
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.10830441512900894 0.0006958464779866047 0.10833623035608012" rpy="0 0 0"/>
+    <!-- <mass value="75.90258337879241"/> -->
+    <mass value="30.0"/>
+    <inertia ixx="0.899846" iyy="0.838355" izz="0.979941" ixy="-0.009374" iyz="-0.009083" ixz="-0.031782"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find crash_simulation)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find crash_simulation)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="base_footprint_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="base_footprint"/>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+</joint>
+
+<link name="base_footprint">
+</link>
+
+<link name="panda_frame_1">
+  <inertial>
+    <origin xyz="0.26418124026143003 -0.1759181632030937 0.5384926853759742" rpy="0 0 0"/>
+    <!-- <mass value="61.35340014820905"/> -->
+    <mass value="5.0"/>
+    <inertia ixx="3.575004" iyy="3.498426" izz="1.195587" ixy="-0.004208" iyz="0.01307" ixz="-0.071653"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.31 -0.175 -0.049" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find crash_simulation)/meshes/panda_frame_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.31 -0.175 -0.049" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find crash_simulation)/meshes/panda_frame_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel_2">
+  <inertial>
+    <origin xyz="-1.995829514935693e-09 0.006200869145558674 4.1927631611745025e-09" rpy="0 0 0"/>
+    <mass value="1.3260904074030182"/>
+    <inertia ixx="0.001415" iyy="0.002676" izz="0.001415" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.2084 0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find crash_simulation)/meshes/right_wheel_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.2084 0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find crash_simulation)/meshes/right_wheel_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_1">
+  <inertial>
+    <origin xyz="-1.9958295950490047e-09 -0.006200869145558813 -4.1927631700396684e-09" rpy="0 0 0"/>
+    <mass value="1.3260904074030182"/>
+    <inertia ixx="0.001415" iyy="0.002676" izz="0.001415" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 -0.2084 0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find crash_simulation)/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 -0.2084 0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find crash_simulation)/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+
+<link name="caster_1">
+  <inertial>
+    <origin xyz="-0.01751980598239028 4.3013562483747607e-08 -0.05240104554531534" rpy="0 0 0"/>
+    <mass value="1.6117880362991714"/>
+    <inertia ixx="0.001424" iyy="0.001841" izz="0.000923" ixy="-0.0" iyz="0.0" ixz="-0.000298"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.279 0.0 -0.043" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find crash_simulation)/meshes/caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.279 0.0 -0.043" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find crash_simulation)/meshes/caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="panda_frame_joint" type="fixed">
+  <origin xyz="-0.31 0.175 0.049" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="panda_frame_1"/>
+</joint>
+
+<joint name="right_wheel_joint" type="continuous">
+  <origin xyz="0.0 -0.2084 0.0" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_wheel_2"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="left_wheel_joint" type="continuous">
+  <origin xyz="0.0 0.2084 0.0" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_wheel_1"/>
+  <axis xyz="-0.0 1.0 -0.0"/>
+</joint>
+
+
+<joint name="caster_joint" type="fixed">
+  <origin xyz="-0.279 0.0 0.043" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="caster_1"/>
+</joint>
+
+
+<gazebo reference="base_link">
+  <material>Gazebo/White</material>
+  <!-- <mu1>0.2</mu1>
+  <mu2>0.2</mu2> -->
+  <self_collide>true</self_collide>
+  <gravity>true</gravity>
+</gazebo>
+
+<gazebo reference="panda_frame_1">
+  <material>Gazebo/White</material>
+  <!-- <mu1>0.2</mu1>
+  <mu2>0.2</mu2> -->
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="right_wheel_2">
+  <material>Gazebo/White</material>
+  <!-- <mu1>1.0</mu1>
+  <mu2>1.0</mu2> -->
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="left_wheel_1">
+  <material>Gazebo/White</material>
+  <!-- <mu1>1.0</mu1>
+  <mu2>1.0</mu2> -->
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="lidar_1">
+  <material>Gazebo/White</material>
+  <!-- <mu1>0.2</mu1>
+  <mu2>0.2</mu2> -->
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="caster_1">
+  <material>Gazebo/White</material>
+  <mu1>0.001</mu1>
+  <mu2>0.001</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+</robot>
