@@ -32,3 +32,7 @@ ros2 topic pub --once /behaviorFromGPT std_msgs/msg/String "data: '02'"
 ## 영상자료
 https://github.com/kwongeunwoo/CrashLab/assets/110722569/53645128-e71e-49b6-a2d6-ff5d8fe25cdd
 
+
+https://github.com/kwongeunwoo/CrashLab/assets/110722569/409c94fe-3eb4-4b18-ba38-04bf12030f3d
+
+
